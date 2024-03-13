@@ -10,13 +10,13 @@ import java.util.*;
 public class AddressBookApp 
 {
     /** Used to obtain user input. */
-    private static Scanner input = new Scanner(System.in);
+    private static final Scanner input = new Scanner(System.in);
     
     public static void main(String[] args)
     {
         String fileName;
         String entryName;
-        
+        System.out.println("Is that correct filename ?");
         System.out.print("Enter address book filename: ");
         fileName = input.nextLine();
         
@@ -56,9 +56,7 @@ public class AddressBookApp
 
                 ArrayList<String> emailAddress = new ArrayList<>();
 
-                for (int i = 1; i < parts.length; i++) {
-                    emailAddress.add(parts[i]);
-                }
+                emailAddress.addAll(Arrays.asList(parts).subList(1, parts.length));
 
                 Entry entry = new Entry(parts[0], emailAddress);
 

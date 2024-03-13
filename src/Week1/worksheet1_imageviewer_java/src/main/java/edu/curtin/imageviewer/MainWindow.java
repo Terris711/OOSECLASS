@@ -86,7 +86,7 @@ public class MainWindow
         mainBox.setCenter(scroller);
         
         // FIXME: fix this code so that it displays the caption for the first image.
-        captionWidget.setText("[Initial image caption]");
+        captionWidget.setText(album.getRecord().getCaption());
         mainBox.setBottom(captionWidget);
         
         stage.sizeToScene();
@@ -107,9 +107,10 @@ public class MainWindow
     private void prevBtnHandler(ActionEvent event)
     {
         // FIXME: fix this code so that it actually displays the previous image & caption.
-        String url = new File("[Initial image filename]").toURI().toString();
+        album.prev();
+        String url = new File(album.getRecord().getFilename()).toURI().toString();
         imageWidget.setImage(new Image(url));
-        captionWidget.setText("[Initial image caption]");
+        captionWidget.setText(album.getRecord().getCaption());
     }
 
     /**
@@ -118,8 +119,8 @@ public class MainWindow
     private void nextBtnHandler(ActionEvent event)
     {
         // FIXME: fix this code so that it actually displays the next image & caption.
-        String url = new File("[Initial image filename]").toURI().toString();
+        String url = new File(album.getRecord().getFilename()).toURI().toString();
         imageWidget.setImage(new Image(url));
-        captionWidget.setText("[Initial image caption]");
+        captionWidget.setText(album.getRecord().getCaption());
     }
 }
