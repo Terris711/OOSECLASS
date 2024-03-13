@@ -19,7 +19,6 @@ public class AddressBookApp
         
         System.out.print("Enter address book filename: ");
         fileName = input.nextLine();
-
         
         try
         {
