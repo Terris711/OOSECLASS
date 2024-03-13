@@ -82,6 +82,7 @@ public class MainApplication extends Application
                     }
                     
                     // FIXME: Insert your code here to add a new image to the album.
+                    album.addRecord(new ImageRecord(imageFilename, imageCaption));
                 }
                             
                 line = reader.readLine();

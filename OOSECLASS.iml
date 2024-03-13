@@ -43,5 +43,42 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Downloads/javafx-sdk-17.0.10/lib/javafx-swt.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/javafx-sdk-17.0.10/lib/javafx.media.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/javafx-sdk-17.0.10/lib/javafx.swing.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/javafx-sdk-17.0.10/lib/javafx.web.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <NATIVE>
+          <root url="file://$USER_HOME$/Downloads/javafx-sdk-17.0.10/lib" />
+          <root url="file://$USER_HOME$/Downloads/javafx-sdk-17.0.10/lib" />
+          <root url="file://$USER_HOME$/Downloads/javafx-sdk-17.0.10/lib" />
+          <root url="file://$USER_HOME$/Downloads/javafx-sdk-17.0.10/lib" />
+          <root url="file://$USER_HOME$/Downloads/javafx-sdk-17.0.10/lib" />
+          <root url="file://$USER_HOME$/Downloads/javafx-sdk-17.0.10/lib" />
+          <root url="file://$USER_HOME$/Downloads/javafx-sdk-17.0.10/lib" />
+          <root url="file://$USER_HOME$/Downloads/javafx-sdk-17.0.10/lib" />
+          <root url="file://$USER_HOME$/Downloads/javafx-sdk-17.0.10/lib" />
+          <root url="file://$USER_HOME$/Downloads/javafx-sdk-17.0.10/lib" />
+          <root url="file://$USER_HOME$/Downloads/javafx-sdk-17.0.10/lib" />
+          <root url="file://$USER_HOME$/Downloads/javafx-sdk-17.0.10/lib" />
+          <root url="file://$USER_HOME$/Downloads/javafx-sdk-17.0.10/lib" />
+        </NATIVE>
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="file://$USER_HOME$/Downloads/javafx-sdk-17.0.10/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$USER_HOME$/Downloads/javafx-sdk-17.0.10/lib" recursive="false" />
+      </library>
+    </orderEntry>
   </component>
 </module>
