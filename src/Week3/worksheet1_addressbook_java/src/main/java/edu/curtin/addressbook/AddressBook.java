@@ -11,24 +11,28 @@ import java.util.*;
  */
 public class AddressBook
 {
-    private HashMap<String, Week2.worksheet1_addressbook_java.src.main.java.edu.curtin.addressbook.Entry> addresses;
+    private HashMap<String, Entry> addresses;
 
     public AddressBook() {
         this.addresses = new HashMap<>();
     }
 
-    public void addAddress (String name, Week2.worksheet1_addressbook_java.src.main.java.edu.curtin.addressbook.Entry entry) {
+    public HashMap<String, Entry> getAddresses() {
+        return addresses;
+    }
+
+    public void addAddress (String name, Entry entry) {
         addresses.put(name, entry);
     }
 
-    public Week2.worksheet1_addressbook_java.src.main.java.edu.curtin.addressbook.Entry findAddress (String name) {
+    public Entry findAddress (String name) {
         return addresses.get(name);
     }
 
 
-    // Searche for an entry in the address book based on the given email address
-    public Week2.worksheet1_addressbook_java.src.main.java.edu.curtin.addressbook.Entry findName(String email) {
-        Week2.worksheet1_addressbook_java.src.main.java.edu.curtin.addressbook.Entry foundEntry = null;
+    // Search for an entry in the address book based on the given email address
+    public Entry findName(String email) {
+        Entry foundEntry = null;
 
         for (Map.Entry<String, Entry> entry : addresses.entrySet()) {
             if (entry.getValue().findAddress(email)) {

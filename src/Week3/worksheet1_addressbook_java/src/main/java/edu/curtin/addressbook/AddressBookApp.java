@@ -25,7 +25,7 @@ public class AddressBookApp
         
         try
         {
-            Week2.worksheet1_addressbook_java.src.main.java.edu.curtin.addressbook.AddressBook addressBook = readAddressBook(fileName);
+            AddressBook addressBook = readAddressBook(fileName);
             showMenu(addressBook);
         }
         catch(IOException e)
@@ -41,9 +41,9 @@ public class AddressBookApp
      * @return A new AddressBook object containing all the information.
      * @throws IOException If the file cannot be read.
      */
-    private static Week2.worksheet1_addressbook_java.src.main.java.edu.curtin.addressbook.AddressBook readAddressBook(String fileName) throws IOException
+    private static AddressBook readAddressBook(String fileName) throws IOException
     {
-        Week2.worksheet1_addressbook_java.src.main.java.edu.curtin.addressbook.AddressBook addressBook = new Week2.worksheet1_addressbook_java.src.main.java.edu.curtin.addressbook.AddressBook();
+        AddressBook addressBook = new AddressBook();
         
         try(BufferedReader reader = new BufferedReader(new FileReader(fileName)))
         {
@@ -61,7 +61,7 @@ public class AddressBookApp
 
                 emailAddress.addAll(Arrays.asList(parts).subList(1, parts.length));
 
-                Week2.worksheet1_addressbook_java.src.main.java.edu.curtin.addressbook.Entry entry = new Entry(parts[0], emailAddress);
+                Entry entry = new Entry(parts[0], emailAddress);
 
                 addressBook.addAddress(parts[0], entry);
                 
