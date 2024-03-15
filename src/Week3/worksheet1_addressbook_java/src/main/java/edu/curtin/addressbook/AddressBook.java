@@ -11,7 +11,7 @@ import java.util.*;
  */
 public class AddressBook
 {
-    private HashMap<String, Entry> addresses;
+    private final HashMap<String, Entry> addresses;
 
     public AddressBook() {
         this.addresses = new HashMap<>();

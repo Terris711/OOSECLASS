@@ -8,6 +8,10 @@ public class SearchByName extends Option{
         this.addressBook = addressBook;
     }
 
+    public SearchByName(Week2.worksheet1_addressbook_java.src.main.java.edu.curtin.addressbook.AddressBook addressBook) {
+        super();
+    }
+
     @Override
     public String doOption(String s) {
         return addressBook.findAddress(s).toString();

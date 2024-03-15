@@ -18,15 +18,16 @@ public class AddressBookApp
     public static void main(String[] args)
     {
         String fileName;
-        String entryName;
-        System.out.println("Is that correct filename ?");
+        Scanner input = new Scanner(System.in);
+        AddressBookApp addressBookApp = new AddressBookApp();
+
         System.out.print("Enter address book filename: ");
         fileName = input.nextLine();
         
         try
         {
-            AddressBook addressBook = readAddressBook(fileName);
-            showMenu(addressBook);
+            readAddressBook(fileName);
+            showMenu();
         }
         catch(IOException e)
         {
@@ -57,9 +58,7 @@ public class AddressBookApp
                 // parts[0] contains the person's name.
                 // parts[1], parts[2], etc. contain the person's email address(es).
 
-                ArrayList<String> emailAddress = new ArrayList<>();
-
-                emailAddress.addAll(Arrays.asList(parts).subList(1, parts.length));
+                ArrayList<String> emailAddress = new ArrayList<>(Arrays.asList(parts).subList(1, parts.length));
 
                 Entry entry = new Entry(parts[0], emailAddress);
 
@@ -68,57 +67,67 @@ public class AddressBookApp
                 line = reader.readLine();
             }
         }
-        
+
+        // Initializa the options for hashmap
+        initOptions(addressBook);
+
         return addressBook;
     }
-    
+
+    // Initilize the HashMap storing the different options
+    private static final Map<Integer, Option> options = new HashMap<>();
+
+    // Set up the hashmap to point to the correct option for each key
+    public static void initOptions(AddressBook addressBook) {
+        options.put(1, new SearchByName(addressBook));
+        options.put(2, new SearchByEmail(addressBook));
+        options.put(3, new DisplayAll(addressBook));
+    }
+
+    // Add another option to the hashmap
+    public void addOption(Integer i, Option option){
+        options.put(i,option);
+    }
+
     /**
-     * Show the main menu, offering the user options to (1) search entries by 
+     * Show the main menu, offering the user options to (1) search entries by
      * name, (2) search entries by email, or (3) quit.
-     *
-     * @param addressBook The AddressBook object to search.
      */
-    private static void showMenu(AddressBook addressBook)
+    private static void showMenu()
     {
+        String searchTerm;
+        int inTerm;
+        Option option;
         boolean done = false;
+        Scanner input = new Scanner(System.in);
         while(!done)
         {
-            int option;
-            System.out.println("(1) Search by name, (2) Search by email, (3) Quit");
+            System.out.println("(1) Search by name, (2) Search by email, (3) Display ALl, (4) Quit");
             
-            try
-            {
-                switch (Integer.parseInt(input.nextLine()))
-                {
-                    case 1:
-                        System.out.print("Enter name: ");
-                        String name = input.nextLine();
-                        
-                        // FIXME: Insert your code here to find an entry by name and display it.
-                        System.out.println(addressBook.findAddress(name));
-                        break;
-                        
-                    case 2:
-                        System.out.print("Enter email address: ");
-                        String email = input.nextLine();
-                        
-                        // FIXME: Insert your code here to find an entry by email and display it.
-                        System.out.println(addressBook.findName(email));
-                        break;
-                        
-                    case 3:
-                        done = true;
-                        break;
-                        
-                    default:
-                        System.out.println("Enter a valid number");
-                        break;
+            try {
+                inTerm = Integer.parseInt(input.nextLine());
+                if (inTerm == 4) {
+                    done = true;
+                } else {
+                    // Get the option mapped to the user selection
+                    option = options.get(inTerm);
+                    if (option != null) {
+                        searchTerm = "";
+
+                        // Check if the selection requires a user input
+                        if (option.requiresText()) {
+                            System.out.println("Enter search term: ");
+                            searchTerm = input.nextLine();
+                        }
+
+                        // at this level code does not know or car which version of doOption is running
+                        System.out.println(option.doOption(searchTerm));
+                    } else {
+                        System.out.println("Enter a valid number !");
+                    }
                 }
-            }
-            catch(NumberFormatException e)
-            {
-                // The user entered something non-numerical.
-                System.out.println("Enter a number");
+            } catch (NumberFormatException e) {
+                System.out.println("Please enter a number!");
             }
         }
     }
