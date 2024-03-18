@@ -8,9 +8,9 @@ public class SearchByEmail extends Option{
         this.addressBook = addressBook;
     }
 
-    public SearchByEmail(Week2.worksheet1_addressbook_java.src.main.java.edu.curtin.addressbook.AddressBook addressBook) {
-        super();
-    }
+//    public SearchByEmail(AddressBook addressBook) {
+//        super();
+//    }
 
     @Override
     public String doOption(String s) {

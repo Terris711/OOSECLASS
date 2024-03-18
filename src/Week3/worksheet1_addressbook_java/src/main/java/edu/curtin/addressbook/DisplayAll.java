@@ -1,7 +1,5 @@
 package Week3.worksheet1_addressbook_java.src.main.java.edu.curtin.addressbook;
 
-import Week2.worksheet1_addressbook_java.src.main.java.edu.curtin.addressbook.Entry;
-
 import java.util.Map;
 
 public class DisplayAll extends  Option{
@@ -12,9 +10,9 @@ public class DisplayAll extends  Option{
         this.addressBook = addressBook;
     }
 
-    public DisplayAll(Week2.worksheet1_addressbook_java.src.main.java.edu.curtin.addressbook.AddressBook addressBook) {
-        super();
-    }
+//    public DisplayAll(AddressBook addressBook) {
+//        super();
+//    }
 
     @Override
     public String doOption(String s) {

@@ -1,8 +1,5 @@
 package Week3.worksheet1_addressbook_java.src.main.java.edu.curtin.addressbook;
 
-import Week2.worksheet1_addressbook_java.src.main.java.edu.curtin.addressbook.AddressBook;
-import Week2.worksheet1_addressbook_java.src.main.java.edu.curtin.addressbook.Entry;
-
 import java.io.*;
 import java.util.*;
 
