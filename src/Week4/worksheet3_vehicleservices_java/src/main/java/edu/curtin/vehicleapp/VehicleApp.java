@@ -1,4 +1,4 @@
-package edu.curtin.vehicleapp;
+package Week4.worksheet3_vehicleservices_java.src.main.java.edu.curtin.vehicleapp;
 
 import java.io.*;
 import java.util.*;
@@ -14,10 +14,10 @@ public class VehicleApp
     {
         try
         {
-            List<VehicleService> services
+            List<edu.curtin.vehicleapp.VehicleService> services
                 = servicesReader.readServices(ServicesFileIO.SERVICES_FILE);
 
-            List<CustomerRequest> requests
+            List<edu.curtin.vehicleapp.CustomerRequest> requests
                 = requestsReader.readRequests(RequestsFileIO.REQUESTS_FILE);
 
             System.out.println("Finding available services for the following customer requests:\n");
@@ -42,7 +42,7 @@ public class VehicleApp
                 System.out.println();
             }
         }
-        catch(FileParseException e)
+        catch(edu.curtin.vehicleapp.FileParseException e)
         {
             System.out.println(
                 "File format error in services and/or requests file: " + e.getMessage());

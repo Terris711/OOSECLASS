@@ -1,4 +1,4 @@
-package edu.curtin.vehicleapp;
+package Week4.worksheet3_vehicleservices_java.src.main.java.edu.curtin.vehicleapp;
 
 import java.io.*;
 import java.util.*;
@@ -26,10 +26,10 @@ public class RequestsFileIO
 {
     public static final String REQUESTS_FILE = "requests.txt";
 
-    public List<CustomerRequest> readRequests(String filename) throws FileParseException,
+    public List<edu.curtin.vehicleapp.CustomerRequest> readRequests(String filename) throws edu.curtin.vehicleapp.FileParseException,
                                                                       IOException
     {
-        var requests = new ArrayList<CustomerRequest>();
+        var requests = new ArrayList<edu.curtin.vehicleapp.CustomerRequest>();
         try(var reader = new BufferedReader(new FileReader(filename)))
         {
             String line = reader.readLine();
@@ -46,11 +46,9 @@ public class RequestsFileIO
         return requests;
     }
 
-    private CustomerRequest readRequest(String line) throws FileParseException, IOException
+    private edu.curtin.vehicleapp.CustomerRequest readRequest(String line) throws edu.curtin.vehicleapp.FileParseException, IOException
     {
         String[] parts = line.split(";");
-
-        CustomerRequest request;
 
         // The first part of the line describes the base service being requested -- taxi, tour or
         // rental -- and associated core info.
@@ -93,7 +91,7 @@ public class RequestsFileIO
                 break;
 
             default:
-                throw new FileParseException("'" + fields[0] + "' is not a valid request");
+                throw new edu.curtin.vehicleapp.FileParseException("'" + fields[0] + "' is not a valid request");
         }
 
         // The rest of the line contains a range of extra stipulations (add-ons to the request).
@@ -144,7 +142,7 @@ public class RequestsFileIO
                     break;
 
                 default:
-                    throw new FileParseException("'" + fields[0] + "' is not a valid request");
+                    throw new edu.curtin.vehicleapp.FileParseException("'" + fields[0] + "' is not a valid request");
             }
         }
 
@@ -152,15 +150,15 @@ public class RequestsFileIO
         return request;
     }
 
-    private void check(boolean condition) throws FileParseException
+    private void check(boolean condition) throws edu.curtin.vehicleapp.FileParseException
     {
         if(!condition)
         {
-            throw new FileParseException("Customer request file format error");
+            throw new edu.curtin.vehicleapp.FileParseException("Customer request file format error");
         }
     }
 
-    private int getInt(String field) throws FileParseException
+    private int getInt(String field) throws edu.curtin.vehicleapp.FileParseException
     {
         try
         {
@@ -168,11 +166,11 @@ public class RequestsFileIO
         }
         catch(NumberFormatException e)
         {
-            throw new FileParseException("Customer request file: invalid number", e);
+            throw new edu.curtin.vehicleapp.FileParseException("Customer request file: invalid number", e);
         }
     }
 
-    private LocalDateTime getTime(String field) throws FileParseException
+    private LocalDateTime getTime(String field) throws edu.curtin.vehicleapp.FileParseException
     {
         try
         {
@@ -180,7 +178,7 @@ public class RequestsFileIO
         }
         catch(DateTimeParseException e)
         {
-            throw new FileParseException("Customer request file: invalid date/time format", e);
+            throw new edu.curtin.vehicleapp.FileParseException("Customer request file: invalid date/time format", e);
         }
     }
 }

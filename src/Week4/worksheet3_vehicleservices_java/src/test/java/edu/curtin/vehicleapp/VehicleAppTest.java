@@ -1,5 +1,7 @@
-package edu.curtin.vehicleapp;
+package Week4.worksheet3_vehicleservices_java.src.test.java.edu.curtin.vehicleapp;
 
+import Week4.worksheet3_vehicleservices_java.src.main.java.edu.curtin.vehicleapp.RequestsFileIO;
+import Week4.worksheet3_vehicleservices_java.src.main.java.edu.curtin.vehicleapp.ServicesFileIO;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.io.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -14,7 +16,7 @@ class VehicleAppTest
     protected static Path tempDir;
 
     @Test
-    protected void servicesTest() throws IOException, FileParseException
+    protected void servicesTest() throws IOException, edu.curtin.vehicleapp.FileParseException
     {
         var path = tempDir.resolve("testservices.txt");
         Files.write(
@@ -36,7 +38,7 @@ class VehicleAppTest
     }
 
     @Test
-    protected void requestsTest() throws IOException, FileParseException
+    protected void requestsTest() throws IOException, edu.curtin.vehicleapp.FileParseException
     {
         var path = tempDir.resolve("testservices.txt");
 
@@ -123,7 +125,7 @@ class VehicleAppTest
     }
 
     private void assertSatisfiedBy(String validService, List<String> invalidServices,
-                                   String reqLine, CustomerRequest req)
+                                   String reqLine, edu.curtin.vehicleapp.CustomerRequest req)
     {
         assertTrue(
             req.satisfiedBy(validService),

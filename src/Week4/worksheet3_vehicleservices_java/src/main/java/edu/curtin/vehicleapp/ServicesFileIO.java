@@ -1,4 +1,4 @@
-package edu.curtin.vehicleapp;
+package Week4.worksheet3_vehicleservices_java.src.main.java.edu.curtin.vehicleapp;
 
 import java.io.*;
 import java.util.*;
@@ -11,10 +11,10 @@ public class ServicesFileIO
 {
     public static final String SERVICES_FILE = "services.txt";
 
-    public List<VehicleService> readServices(String filename) throws FileParseException,
+    public List<edu.curtin.vehicleapp.VehicleService> readServices(String filename) throws edu.curtin.vehicleapp.FileParseException,
                                                                      IOException
     {
-        var services = new ArrayList<VehicleService>();
+        var services = new ArrayList<edu.curtin.vehicleapp.VehicleService>();
         try(var reader = new BufferedReader(new FileReader(filename)))
         {
             String line = reader.readLine();
@@ -26,10 +26,10 @@ public class ServicesFileIO
                     var parts = line.split(":", 2);
                     if(parts.length != 2)
                     {
-                        throw new FileParseException("Vehicle services file format error");
+                        throw new edu.curtin.vehicleapp.FileParseException("Vehicle services file format error");
                     }
 
-                    services.add(new VehicleService(parts[0], parts[1]));
+                    services.add(new edu.curtin.vehicleapp.VehicleService(parts[0], parts[1]));
                 }
                 line = reader.readLine();
             }
