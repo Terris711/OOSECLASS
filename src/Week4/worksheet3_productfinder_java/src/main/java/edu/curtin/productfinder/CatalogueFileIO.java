@@ -1,5 +1,7 @@
 package Week4.worksheet3_productfinder_java.src.main.java.edu.curtin.productfinder;
 
+import jdk.jfr.Category;
+
 import java.io.*;
 import java.util.*;
 
@@ -29,11 +31,10 @@ public class CatalogueFileIO
 {
     public static final String CATALOGUE_FILE = "catalogue.txt";
 
-    public edu.curtin.productfinder.CatalogueItem readCatalogue(String filename) throws edu.curtin.productfinder.CatalogueFormatException,
+    public CatalogueItem readCatalogue(String filename) throws CatalogueFormatException,
                                                                IOException
     {
         // TODO: Create the root category
-        // ...
 
         try(var reader = new BufferedReader(new FileReader(filename)))
         {
@@ -71,12 +72,12 @@ public class CatalogueFileIO
                             }
                             catch(NumberFormatException e)
                             {
-                                throw new edu.curtin.productfinder.CatalogueFormatException("Catalogue product: invalid number format", e);
+                                throw new CatalogueFormatException("Catalogue product: invalid number format", e);
                             }
                             break;
 
                         default:
-                            throw new edu.curtin.productfinder.CatalogueFormatException("Unknown line format");
+                            throw new CatalogueFormatException("Unknown line format");
                     }
                 }
                 line = reader.readLine();

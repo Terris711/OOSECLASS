@@ -1,5 +1,7 @@
-package edu.curtin.productfinder;
+package Week4.worksheet3_productfinder_java.src.test.java.edu.curtin.productfinder;
 
+import Week4.worksheet3_productfinder_java.src.main.java.edu.curtin.productfinder.CatalogueFileIO;
+import Week4.worksheet3_productfinder_java.src.main.java.edu.curtin.productfinder.CatalogueFormatException;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.io.*;
 import static org.junit.jupiter.api.Assertions.*;
