@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 import java.io.*;
 
 /**
- * Main class representing the entry point (and controller) of the application.
+ * Week4.Main class representing the entry point (and controller) of the application.
  */
 public class MainApplication extends Application
 {
