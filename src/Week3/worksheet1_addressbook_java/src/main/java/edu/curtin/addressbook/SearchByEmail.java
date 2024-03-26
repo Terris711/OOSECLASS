@@ -8,10 +8,6 @@ public class SearchByEmail extends Option{
         this.addressBook = addressBook;
     }
 
-//    public SearchByEmail(AddressBook addressBook) {
-//        super();
-//    }
-
     @Override
     public String doOption(String s) {
         return addressBook.findName(s).toString();
